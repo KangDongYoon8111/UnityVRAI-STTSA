@@ -1121,7 +1121,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 98456240}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1063992255}
+        m_TargetAssemblyTypeName: WhisperFullPipeline, Assembly-CSharp
+        m_MethodName: StartSTT
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &98456240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2868,7 +2880,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 289169566}
   m_OnClick:
     m_PersistentCalls:
@@ -7207,6 +7219,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062589828}
   m_CullTransparentMesh: 1
+--- !u!1 &1063992253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1063992254}
+  - component: {fileID: 1063992257}
+  - component: {fileID: 1063992256}
+  - component: {fileID: 1063992255}
+  m_Layer: 0
+  m_Name: ONNX WhisperSTT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1063992254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063992253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1800727313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1063992255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063992253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f5092323af46e48bc51dcc06a7b492, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  micRecorder: {fileID: 1682991270}
+  encoderRunner: {fileID: 1063992257}
+  decoderRunner: {fileID: 1063992256}
+  outputText: {fileID: 1462583394}
+  debugText: {fileID: 1320927515}
+--- !u!114 &1063992256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063992253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a429302dd79238468a743863e8d4c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decoderModelAsset: {fileID: 5022602860645237092, guid: bd3c8113b8cec4149b51a07361a284cd, type: 3}
+  vocabJsonAsset: {fileID: 4900000, guid: 80d7a502e4867e44ab7bc7a03003e6ad, type: 3}
+--- !u!114 &1063992257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1063992253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 993924d6ad560524cab05dc030a80406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encoderModelAsset: {fileID: 5022602860645237092, guid: e48a881a67443c54e8acb32022ab4fd5, type: 3}
 --- !u!1 &1107248718
 GameObject:
   m_ObjectHideFlags: 0
@@ -9921,6 +10011,56 @@ Transform:
   - {fileID: 795783353}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1583295971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583295972}
+  - component: {fileID: 1583295973}
+  m_Layer: 0
+  m_Name: Whisper Debugger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1583295972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583295971}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1800727313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583295973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583295971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79ae77e387fc7f6439f87acd59a474fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  micRecorder: {fileID: 1682991270}
+  encoder: {fileID: 1063992257}
+  decoder: {fileID: 1063992256}
+  runOnStart: 1
+  useWavInsteadOfMic: 1
+  wavFilename: mic_output.wav
 --- !u!1 &1606355428
 GameObject:
   m_ObjectHideFlags: 0
@@ -10618,6 +10758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1682991267}
   - component: {fileID: 1682991268}
+  - component: {fileID: 1682991270}
   - component: {fileID: 1682991269}
   m_Layer: 0
   m_Name: MicRecorder
@@ -10648,7 +10789,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682991266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 523ad4f360c43614bab788cb6247a079, type: 3}
   m_Name: 
@@ -10753,6 +10894,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1682991270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682991266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9903ab9320041ed43aa2e8e752acf82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSaveToWav: 0
+  debugText: {fileID: 2090650337}
+  sampleRate: 16000
+  maxRecordTime: 5
 --- !u!1 &1693362547
 GameObject:
   m_ObjectHideFlags: 0
@@ -11305,6 +11462,8 @@ Transform:
   m_Children:
   - {fileID: 1682991267}
   - {fileID: 1885379826}
+  - {fileID: 1063992254}
+  - {fileID: 1583295972}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808148650
@@ -12240,7 +12399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1885379826
 Transform:
   m_ObjectHideFlags: 0
